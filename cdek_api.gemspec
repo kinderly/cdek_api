@@ -1,7 +1,7 @@
 require File.expand_path("../lib/cdek_api/version", __FILE__)
 
 Gem::Specification.new do |s|
-  s.name = "axiomus_api"
+  s.name = "cdek_api"
   s.version = ::CdekApi::VERSION
   s.authors = ["Kinderly LTD"]
   s.email = ["nuinuhin@gmail.com"]

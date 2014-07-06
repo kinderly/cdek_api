@@ -1,0 +1,26 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="PvzList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Pvz" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="Code" use="required"/>
+                <xs:attribute type="xs:string" name="Name" use="required"/>
+                <xs:attribute type="xs:short" name="CityCode" use="required"/>
+                <xs:attribute type="xs:string" name="City" use="requireed"/>
+                <xs:attribute type="xs:string" name="WorkTime" use="optional"/>
+                <xs:attribute type="xs:string" name="Address" use="optional"/>
+                <xs:attribute type="xs:string" name="Phone" use="optional"/>
+                <xs:attribute type="xs:string" name="Note" use="optional"/>
+                <xs:attribute type="xs:float" name="coordX" use="optional"/>
+                <xs:attribute type="xs:float" name="coordY" use="optional"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
