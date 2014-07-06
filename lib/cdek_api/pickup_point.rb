@@ -1,21 +1,18 @@
 module CdekApi
   class PickupPoint
-    attr_accessor :code, :name, :city_code, :city, :work_time, :address, :phone, :note, :coord_x,
-                  :coord_y
+    attr_reader :code, :name, :city_code, :city, :work_time, :address, :phone, :note, :coord_x, :coord_y
 
-    def self.from_xml(xml)
-      res = PickupPoint.new
-      res.code = xml.xpath('@Code').text
-      res.name = xml.xpath('@NameCode').text
-      res.city_code = xml.xpath('@CityCode').text.to_i
-      res.city = xml.xpath('@City').text
-      res.work_time = xml.xpath('@WorkTime').text
-      res.address = xml.xpath('@Address').text
-      res.phone = xml.xpath('@Phone').text
-      res.note = xml.xpath('@Note').text
-      res.coord_x = xml.xpath('@coord_x').text.to_f
-      res.coord_y = xml.xpath('@coord_y').text.to_f
-      res
+    def initialize(xml_node)
+      @code = xml_node.xpath('@Code').text
+      @name = xml_node.xpath('@NameCode').text
+      @city_code = xml_node.xpath('@CityCode').text.to_i
+      @city = xml_node.xpath('@City').text
+      @work_time = xml_node.xpath('@WorkTime').text
+      @address = xml_node.xpath('@Address').text
+      @phone = xml_node.xpath('@Phone').text
+      @note = xml_node.xpath('@Note').text
+      @coord_x = xml_node.xpath('@coord_x').text.to_f
+      @coord_y = xml_node.xpath('@coord_y').text.to_f
     end
   end
 end

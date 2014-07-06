@@ -1,5 +1,6 @@
 require 'net/http'
 require 'nokogiri'
+require 'csv'
 
 module CdekApi
   API_HOST = 'gw.edostavka.ru'
@@ -12,9 +13,22 @@ module CdekApi
     xml_doc = Nokogiri::XML(response.body)
 
     xml_doc.xpath('PvzList/Pvz').map do |el|
-      PickupPoint.from_xml(el)
+      PickupPoint.new(el)
     end
+  end
+
+  def self.russian_cities
+    data_file = File.expand_path("../../data/russian_cities.csv", __FILE__)
+
+    res = []
+
+    CSV.foreach(data_file) do |row|
+      res << City.new(row)
+    end
+
+    res
   end
 end
 
 require_relative 'cdek_api/pickup_point'
+require_relative 'cdek_api/city'
