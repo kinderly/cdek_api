@@ -22,7 +22,7 @@ module CdekApi
 
     res = []
 
-    CSV.foreach(data_file) do |row|
+    CSV.foreach(data_file, col_sep: ';') do |row|
       res << City.new(row)
     end
 

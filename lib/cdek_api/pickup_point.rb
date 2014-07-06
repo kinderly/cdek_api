@@ -4,7 +4,7 @@ module CdekApi
 
     def initialize(xml_node)
       @code = xml_node.xpath('@Code').text
-      @name = xml_node.xpath('@NameCode').text
+      @name = xml_node.xpath('@Name').text
       @city_code = xml_node.xpath('@CityCode').text.to_i
       @city = xml_node.xpath('@City').text
       @work_time = xml_node.xpath('@WorkTime').text
